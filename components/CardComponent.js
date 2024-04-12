@@ -2,14 +2,14 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import SplashScreen from './screens/SplashScreen';
-import  StartupScreen from './screens/StartupScreen'
-import LoginScreen from './screens/LoginScreen';
-import SignupScreen from './screens/SignupScreen';
-import HomeScreen from './screens/HomeScreen'
-import NavigationScreen from './screens/NavigationScreen';
-import NurseRegistrationScreen from './screens/NurseRegistrationScreen'
-import AboutUsPage from './screens/AboutUs'
+import SplashScreen from '../screens/SplashScreen';
+import  StartupScreen from '../screens/StartupScreen'
+import LoginScreen from '../screens/LoginScreen';
+import SignupScreen from '../screens/SignupScreen';
+import HomeScreen from '../screens/HomeScreen'
+import NavigationScreen from '../screens/NavigationScreen';
+import NurseRegistrationScreen from '../screens/NurseRegistrationScreen'
+import AboutUsPage from '../screens/AboutUs'
 
 const App = () => {
   const Stack = createStackNavigator();
