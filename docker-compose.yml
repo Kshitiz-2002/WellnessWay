@@ -8,9 +8,6 @@ services:
       - .:/usr/src/app
     ports:
       - "3000:3000"
-    environment:
-      - JWT_SECRET=Anonymous@123
-      - MONGO_URI=mongodb+srv://kshitizpandey2002:kshitiz2002@cluster0.0w5mn8q.mongodb.net/WelnessWay
     command: npm start
     depends_on:
       - mongo
