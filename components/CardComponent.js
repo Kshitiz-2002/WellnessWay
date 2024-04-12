@@ -1,45 +1,70 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { View, Image, Text, StyleSheet, Platform } from 'react-native';
 
-import SplashScreen from '../screens/SplashScreen';
-import  StartupScreen from '../screens/StartupScreen'
-import LoginScreen from '../screens/LoginScreen';
-import SignupScreen from '../screens/SignupScreen';
-import HomeScreen from '../screens/HomeScreen'
-import NavigationScreen from '../screens/NavigationScreen';
-import NurseRegistrationScreen from '../screens/NurseRegistrationScreen'
-import AboutUsPage from '../screens/AboutUs'
-
-const App = () => {
-  const Stack = createStackNavigator();
- 
-  const customTransition = ({ current }) => ({
-    cardStyle: {   
-      opacity: current.progress,
-    },
-  });
- 
-  return (   
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="SplashScreen"
-        screenOptions={{
-          headerShown: false, // Use this to hide the header
-          cardStyleInterpolator: customTransition,
-        }}
-      > 
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="StartupScreen" component={StartupScreen} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="SignupScreen" component={SignupScreen} />
-        <Stack.Screen name="NavigationScreen" component={NavigationScreen} />
-        <Stack.Screen name="NurseRegistrationScreen" component={NurseRegistrationScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="AboutUsPage" component={AboutUsPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
+const ModernCard = ({ imageSource, text, backColor }) => {
+  return (
+    <View style={styles.cardContainer}>
+      <View style={styles.innerContainer}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={imageSource}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{text}</Text>
+        </View>
+      </View>
+    </View>
   );
 };
 
-export default App;
+const styles = StyleSheet.create({
+  cardContainer: {
+    borderRadius: 20,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#4FC9BF",
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.3, // Increase opacity for a stronger shadow
+        shadowRadius: 6, // Increase radius for a softer shadow
+      },
+      android: {
+        elevation: 5, // Increase elevation for a stronger shadow on Android
+        overflow: 'hidden',
+      },
+    }),
+  },
+  innerContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: Platform.OS === 'ios' ? 16 : 15,
+    borderRadius: 20, // Match the outer borderRadius
+    overflow: 'hidden',
+  },
+  imageContainer: {
+    height: 100,
+    width: 100,// Make it a circle
+    overflow: 'hidden',
+  },
+  image: {
+    width: '100%',
+    height: '100%', // Make it a circle
+  },
+  textContainer: {
+    padding: 10, // Add padding for a better text presentation
+  },
+  text: {
+    fontSize: Platform.OS === 'ios' ? 18 : 16,
+    fontWeight: 'bold',
+    color: 'white', // Set text color to white for better contrast
+    textAlign: 'center', // Center the text
+  },
+});
+
+export default ModernCard;

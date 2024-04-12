@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    image: node:14-alpine
+    container_name: wellnessway-server
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - JWT_SECRET=Anonymous@123
+      - MONGO_URI=mongodb+srv://kshitizpandey2002:kshitiz2002@cluster0.0w5mn8q.mongodb.net/WelnessWay
+    command: npm start
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
+    container_name: wellnessway-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+volumes:
+  mongo-data:
