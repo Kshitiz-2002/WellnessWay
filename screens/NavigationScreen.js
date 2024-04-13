@@ -16,6 +16,7 @@ import { useRoute } from '@react-navigation/native';
 import RegistraionScreen from './NurseRegistrationScreen';
 import HomeScreen from './HomeScreen';
 import SecondHomeScreen from './SecondHomeScreen';
+import HospitalRecords from './HospitalRecordsScreen';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -129,7 +130,7 @@ const NavigationScreen = () => {
         />
         <Tab.Screen
           name="Doctor"
-          component={RegistraionScreen}
+          component={HospitalRecords}
           options={{
             tabBarIcon: ({ focused }) => (
               <RoundedTab focused={focused}> 
