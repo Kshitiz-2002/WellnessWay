@@ -6,6 +6,7 @@ import SplashScreen from './screens/SplashScreen';
 import  StartupScreen from './screens/StartupScreen'
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import HealthScreen from './screens/HealthdataScreen';
 import HomeScreen from './screens/HomeScreen'
 import NavigationScreen from './screens/NavigationScreen';
 import NurseRegistrationScreen from './screens/NurseRegistrationScreen'
@@ -23,12 +24,13 @@ const App = () => {
   return (   
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SplashScreen"
+        initialRouteName="HealthScreen"
         screenOptions={{
           headerShown: false, // Use this to hide the header
           cardStyleInterpolator: customTransition,
         }}
       > 
+        <Stack.Screen name="HealthScreen" component={HealthScreen} />
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="StartupScreen" component={StartupScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />

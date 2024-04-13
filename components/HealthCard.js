@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Modal, TextInput, Button } from "react-native";
 
-const HealthCard = ({ style, title, initialHeartRate }) => {
+const HealthCard = ({ style, title, initialValue }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [heartRate, setHeartRate] = useState(initialHeartRate || "");
+  const [value, setValue] = useState(initialValue || "");
   const [pastRecords, setPastRecords] = useState([]);
 
   const handleAddRecord = () => {
-    if (heartRate.trim() !== "") {
-      setPastRecords([...pastRecords, heartRate]); // Add heart rate to past records
-      setHeartRate(heartRate); // Update heart rate displayed in the card
+    if (value.trim() !== "") {
+      setPastRecords([...pastRecords, value]); // Add value to past records
+      setValue(pastRecords[pastRecords.length - 1]); // Update value displayed in the card with the last updated value
       setModalVisible(false); // Close the modal after adding record
     }
   };
@@ -36,7 +36,7 @@ const HealthCard = ({ style, title, initialHeartRate }) => {
       >
         {title}
       </Text>
-      <Text style={{ fontSize: 16 }}>{heartRate} mg/dL</Text>
+      <Text style={{ fontSize: 16 }}>{value}</Text>
 
       <Modal
         visible={modalVisible}
@@ -51,7 +51,7 @@ const HealthCard = ({ style, title, initialHeartRate }) => {
             <Text
               style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10 }}
             >
-              Enter Heart Rate
+              Enter {title}
             </Text>
             <TextInput
               style={{
@@ -60,10 +60,9 @@ const HealthCard = ({ style, title, initialHeartRate }) => {
                 borderWidth: 1,
                 marginBottom: 20,
               }}
-              placeholder="Heart Rate (mg/dL)"
-              value={heartRate}
-              onChangeText={(text) => setHeartRate(text)}
-              keyboardType="numeric"
+              placeholder={`${title}`}
+              value={value}
+              onChangeText={(text) => setValue(text)}
             />
             <Button title="Add Record" onPress={handleAddRecord} />
             <View style={{ marginTop: 20 }}>
@@ -73,9 +72,7 @@ const HealthCard = ({ style, title, initialHeartRate }) => {
                 Past Records:
               </Text>
               {pastRecords.map((record, index) => (
-                <Text key={index}>{`Heart Rate Record ${
-                  index + 1
-                }: ${record} mg/dL`}</Text>
+                <Text key={index}>{`${title} Record ${index + 1}: ${record}`}</Text>
               ))}
             </View>
             <Button

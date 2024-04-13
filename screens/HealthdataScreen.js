@@ -3,8 +3,6 @@ import { View, Text, SafeAreaView, Platform } from "react-native";
 import { HealthCard, DiseasePredictionCard } from "../components/HealthCard";
 
 const HealthScreen = () => {
-
-  
   return (
     <SafeAreaView style={{ flex: 1, zIndex: 1 }}>
       <View
@@ -31,8 +29,8 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-      <HealthCard title={"Heart Rate"}/>
-      <HealthCard title={"Blood Oxygen Saturation"}/>
+        <HealthCard title={"Heart Rate"} initialValue={"Initial Heart Rate"} />
+        <HealthCard title={"Blood Oxygen Saturation"} initialValue={"Initial Blood Oxygen Saturation"} />
       </View>
       <View
         style={{
@@ -41,8 +39,8 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-        <HealthCard title={"Cholesterol Level"}/>
-        <HealthCard title={"Blood Sugar Level"}/>
+        <HealthCard title={"Cholesterol Level"} initialValue={"Initial Cholesterol Level"} />
+        <HealthCard title={"Blood Sugar Level"} initialValue={"Initial Blood Sugar Level"} />
       </View>
       <View
         style={{
@@ -51,8 +49,8 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-        <HealthCard title={"Glucose Level"}/>
-        <HealthCard title={" Blood Pressure Level "}/>
+        <HealthCard title={"Glucose Level"} initialValue={"Initial Glucose Level"} />
+        <HealthCard title={"Blood Pressure Level"} initialValue={"Initial Blood Pressure Level"} />
       </View>
       <View
         style={{
@@ -61,7 +59,7 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-        <DiseasePredictionCard style={{ height: 125 }}/>
+        <DiseasePredictionCard style={{ height: 125 }} />
       </View>
     </SafeAreaView>
   );
