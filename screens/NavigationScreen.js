@@ -13,7 +13,6 @@ import { useTheme, Appbar } from 'react-native-paper';
 import HealthScreen from './HealthdataScreen';
 import PrescriptionScreen from './PrescriptionScreen';
 import { useRoute } from '@react-navigation/native';
-import RegistraionScreen from './NurseRegistrationScreen';
 import HomeScreen from './HomeScreen';
 import SecondHomeScreen from './SecondHomeScreen';
 import HospitalRecords from './HospitalRecordsScreen';
@@ -33,11 +32,11 @@ const RoundedTab = ({ children, focused }) => {
         borderRadius: 10,
         padding: 10,
         height: 40,
-        paddingTop: 0, // Increase top padding
-        paddingBottom: 0, // Reduce bottom padding
-        alignSelf: 'center', // Center horizontally
-        alignItems: 'center', // Center vertically
-        justifyContent: 'center', // Center content inside the tab
+        paddingTop: 0, 
+        paddingBottom: 0, 
+        alignSelf: 'center', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
       }}>
       {children}
     </View>

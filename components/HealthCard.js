@@ -157,7 +157,7 @@ const DiseasePredictionCard = ({ style }) => {
       <View style={{ flex: 4, alignItems: "flex-start" }}>
         <Text
           style={{
-            fontSize: 30,
+            fontSize: 25,
             fontWeight: "bold",
             marginBottom: 10,
             color: "#FFFFFF",
@@ -166,12 +166,12 @@ const DiseasePredictionCard = ({ style }) => {
           Current Disease
         </Text>
         {currentDisease ? (
-          <Text style={{ fontSize: 25, color: "#FFFFFF", marginTop: 8 }}>
+          <Text style={{ fontSize: 20, color: "#FFFFFF", marginTop: 8 }}>
             {currentDisease}
           </Text>
         ) : (
-          <Text style={{ fontSize: 30, color: "#FFFFFF", marginTop: 8 }}>
-            No Disease Detected
+          <Text style={{ fontSize: 20, color: "#FFFFFF", marginTop: 8 }}>
+            No Disease yet
           </Text>
         )}
       </View>

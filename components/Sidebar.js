@@ -34,17 +34,8 @@ const Sidebar = ({ isSidebarOpen, user }) => {
       case 'Home':
         navigation.navigate('NavigationScreen', { user: user });
         break;
-      case 'Nurse Registration':
-        navigation.navigate('NurseRegistrationScreen'); // Replace with your nurse registration screen
-        break;
-      case 'Doctor Registration':
-        navigation.navigate('DoctorRegistrationScreen'); // Replace with your nurse registration screen
-        break;
-      case 'Pathalogy Registration':
-        navigation.navigate('PathalogyRegistrationScreen'); // Replace with your nurse registration screen
-        break;
-      case 'Physiotheraphy Registration':
-        navigation.navigate('PhysiotheraphyRegistrationScreen'); // Replace with your nurse registration screen
+      case 'Combined Registration':
+        navigation.navigate('CombinedRegistrationScreen'); // Navigate to combined registration screen
         break;
       case 'About Us':
         navigation.navigate('AboutUsPage'); // Replace with your about us screen
@@ -93,36 +84,14 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={{
-            backgroundColor: selectedOption === 'Doctor Registration' ? '#D4F0F0' : 'white',
+            backgroundColor: selectedOption === 'Combined Registration' ? '#D4F0F0' : 'white',
             alignItems: 'center',
             marginTop: 10,
             width: '80%',
             borderRadius: 10,
           }}
-          onPress={() => handleOptionPress('Doctor Registration')}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Doc Reg</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            backgroundColor: selectedOption === 'Pathalogy Registration' ? '#D4F0F0' : 'white',
-            alignItems: 'center',
-            marginTop: 10,
-            width: '80%',
-            borderRadius: 10,
-          }}
-          onPress={() => handleOptionPress('Pathalogy Registration')}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Pathalogy Reg</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            backgroundColor: selectedOption === 'Physiotheraphy Registration' ? '#D4F0F0' : 'white',
-            alignItems: 'center',
-            marginTop: 10,
-            width: '80%',
-            borderRadius: 10,
-          }}
-          onPress={() => handleOptionPress('Physiotheraphy Registration')}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Physio Reg</Text>
+          onPress={() => handleOptionPress('Combined Registration')}>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Healthcare Reg</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{

@@ -8,8 +8,8 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen'
 import NavigationScreen from './screens/NavigationScreen';
-import NurseRegistrationScreen from './screens/NurseRegistrationScreen'
 import AboutUsPage from './screens/AboutUs'
+import CombinedRegistrationScreen from './screens/CombinedRegistrationScreen'
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -32,9 +32,9 @@ const App = () => {
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="StartupScreen" component={StartupScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="CombinedRegistrationScreen" component={CombinedRegistrationScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="NavigationScreen" component={NavigationScreen} />
-        <Stack.Screen name="NurseRegistrationScreen" component={NurseRegistrationScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="AboutUsPage" component={AboutUsPage} />
       </Stack.Navigator>
