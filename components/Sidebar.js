@@ -73,17 +73,6 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={{
-            backgroundColor: selectedOption === 'Nurse Registration' ? '#D4F0F0' : 'white',
-            alignItems: 'center',
-            marginTop: 10,
-            width: '80%',
-            borderRadius: 10,
-          }}
-          onPress={() => handleOptionPress('Nurse Registration')}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Nurse Reg</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
             backgroundColor: selectedOption === 'Combined Registration' ? '#D4F0F0' : 'white',
             alignItems: 'center',
             marginTop: 10,
