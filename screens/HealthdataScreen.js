@@ -1,11 +1,69 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text, SafeAreaView, Platform } from "react-native";
+import { HealthCard, DiseasePredictionCard } from "../components/HealthCard";
 
 const HealthScreen = () => {
+
+  
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Health Screen</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1, zIndex: 1 }}>
+      <View
+        style={{
+          flex: 0.25,
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: Platform.OS === "ios" ? 40 : 32,
+            marginTop: Platform.OS === "ios" ? 5 : 2,
+            fontWeight: "700",
+          }}
+        >
+          Health Data
+        </Text>
+      </View>
+      <View
+        style={{
+          flex: 0.8,
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+      <HealthCard title={"Heart Rate"}/>
+      <HealthCard title={"Blood Oxygen Saturation"}/>
+      </View>
+      <View
+        style={{
+          flex: 0.8,
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <HealthCard title={"Cholesterol Level"}/>
+        <HealthCard title={"Blood Sugar Level"}/>
+      </View>
+      <View
+        style={{
+          flex: 0.8,
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <HealthCard title={"Glucose Level"}/>
+        <HealthCard title={" Blood Pressure Level "}/>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <DiseasePredictionCard style={{ height: 125 }}/>
+      </View>
+    </SafeAreaView>
   );
 };
 
