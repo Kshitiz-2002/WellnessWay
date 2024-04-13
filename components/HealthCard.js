@@ -16,9 +16,9 @@ const HealthCard = ({ style, title, initialValue }) => {
 
   const handleAddRecord = () => {
     if (value.trim() !== "") {
-      setPastRecords([...pastRecords, value]); // Add value to past records
-      setValue(pastRecords[pastRecords.length - 1]); // Update value displayed in the card with the last updated value
-      setModalVisible(false); // Close the modal after adding record
+      setPastRecords([...pastRecords, value]); 
+      setValue(pastRecords[pastRecords.length - 1]); 
+      setModalVisible(false); 
     }
   };
 
@@ -104,18 +104,15 @@ const DiseasePredictionCard = ({ style }) => {
   const [diseaseHistory, setDiseaseHistory] = useState([]);
 
   const handlePredictDisease = () => {
-    // Logic to predict disease based on symptoms
-    const predictedDisease = "Some Disease"; // Placeholder for predicted disease
+    const predictedDisease = "Some Disease"; 
     setCurrentDisease(predictedDisease);
 
-    // Add predicted disease to history
     const updatedHistory = [
       ...diseaseHistory,
       { disease: predictedDisease, symptoms: symptoms },
     ];
     setDiseaseHistory(updatedHistory);
 
-    // Close the modal after predicting disease
     setModalVisible(false);
   };
 
@@ -219,7 +216,7 @@ const DiseasePredictionCard = ({ style }) => {
               backgroundColor: "rgba(0, 0, 0, 0.5)",
             }}
           >
-            {/* Prediction Modal Content */}
+            
             <View
               style={{
                 backgroundColor: "white",
@@ -316,7 +313,7 @@ const DiseasePredictionCard = ({ style }) => {
           <Text style={{ fontSize: 16, color: "#4FC9BF" }}>History</Text>
         </TouchableOpacity>
 
-        {/* History Modal */}
+        
         <Modal
           visible={historyModalVisible}
           animationType="slide"
@@ -331,7 +328,7 @@ const DiseasePredictionCard = ({ style }) => {
               backgroundColor: "rgba(0, 0, 0, 0.5)",
             }}
           >
-            {/* History Modal Content */}
+            
             <View
               style={{
                 backgroundColor: "white",

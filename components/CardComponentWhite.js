@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
       ios: {
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.3, // Increase opacity for a stronger shadow
-        shadowRadius: 6, // Increase radius for a softer shadow
+        shadowOpacity: 0.3, 
+        shadowRadius: 6, 
       },
       android: {
-        elevation: 5, // Increase elevation for a stronger shadow on Android
+        elevation: 5, 
         overflow: 'hidden',
       },
     }),
@@ -44,26 +44,26 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: Platform.OS === 'ios' ? 16 : 15,
-    borderRadius: 20, // Match the outer borderRadius
+    borderRadius: 20, 
     overflow: 'hidden',
   },
   imageContainer: {
     height: 100,
-    width: 100,// Make it a circle
+    width: 100,
     overflow: 'hidden',
   },
   image: {
     width: '100%',
-    height: '100%', // Make it a circle
+    height: '100%',
   },
   textContainer: {
-    padding: 10, // Add padding for a better text presentation
+    padding: 10,
   },
   text: {
     fontSize: Platform.OS === 'ios' ? 18 : 16,
     fontWeight: 'bold',
-    color: 'black', // Set text color to white for better contrast
-    textAlign: 'center', // Center the text
+    color: 'black',
+    textAlign: 'center',
   },
 });
 

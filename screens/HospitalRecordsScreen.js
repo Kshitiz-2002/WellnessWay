@@ -63,7 +63,7 @@ const HospitalRecords = () => {
       </View>
       <ScrollView
         style={{ flex: 3, }}
-        showsVerticalScrollIndicator={false} // Hide vertical scrollbar
+        showsVerticalScrollIndicator={false} 
       >
         <HospitalCard
           name="Hospital 1"

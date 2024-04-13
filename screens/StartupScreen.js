@@ -39,7 +39,7 @@ const StratupScreen = () => {
 const styles = StyleSheet.create({
   backgroundContainer: {
     flex: 1,
-    backgroundColor: '#E9EBF6', // Add your color
+    backgroundColor: '#E9EBF6', 
     padding: 15,
   },
   imgBack: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     width: 330,
     height: 574,
     alignSelf: 'center',
-    backgroundColor: '#FFF7F7', // Add your color
+    backgroundColor: '#FFF7F7',
     borderRadius: 5,
     marginTop: 15,
   },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     width: 251.4,
     height: 56.4,
     fontSize: 17,
-    color: '#000000', // Add your color
+    color: '#000000', 
     textAlign: 'center',
     alignSelf: 'center',
     marginVertical: 10,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     width: 272.4,
     height: 92.4,
     fontSize: 17,
-    color: '#9A9A9A', // Add your color
+    color: '#9A9A9A', 
     textAlign: 'center',
     alignSelf: 'center',
     marginVertical: 10,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   submitBox: {
     width: 320,
     height: 65,
-    backgroundColor: '#4FC9BF', // Add your color
+    backgroundColor: '#4FC9BF', 
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   submitText: {
     fontSize: 30,
-    color: '#FFFFFF', // Add your color
+    color: '#FFFFFF', 
     fontWeight: 'bold',
   },
 });

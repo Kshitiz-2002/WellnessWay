@@ -15,7 +15,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false); // Added loading state
+  const [loading, setLoading] = useState(false); 
 
   const handleLogin = async () => {
     if (
@@ -26,7 +26,7 @@ const LoginScreen = () => {
       return;
     }
     try {
-      setLoading(true); // Set loading to true while waiting for the response
+      setLoading(true); 
 
       const userCredentials = {
         emailaddress: email,
@@ -47,7 +47,7 @@ const LoginScreen = () => {
       if (response.ok) {
         const responseData = await response.json();
         setError('')
-        // Pass the user data to the navigation screen
+        
         navigation.navigate('NavigationScreen', { user: responseData.user });
       } else {
         const errorText = await response.text();
@@ -56,7 +56,7 @@ const LoginScreen = () => {
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false); // Set loading back to false regardless of success or failure
+      setLoading(false); 
     }
   };
 

@@ -7,7 +7,6 @@ const Sidebar = ({ isSidebarOpen, user }) => {
   const [selectedOption, setSelectedOption] = useState('Home');
 
   const handleLogout = () => {
-    // Show confirmation dialog
     Alert.alert(
       'Logout',
       'Are you sure you want to logout?',
@@ -19,7 +18,7 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         {
           text: 'Logout',
           onPress: () => {
-            navigation.navigate('LoginScreen'); // Replace 'Login' with the actual name of your login screen
+            navigation.navigate('LoginScreen'); 
           },
         },
       ],
@@ -28,17 +27,17 @@ const Sidebar = ({ isSidebarOpen, user }) => {
   };
 
   const handleOptionPress = (option) => {
-    // Set the selected option and navigate to the respective screen
+
     setSelectedOption(option);
     switch (option) {
       case 'Home':
         navigation.navigate('NavigationScreen', { user: user });
         break;
       case 'Combined Registration':
-        navigation.navigate('CombinedRegistrationScreen'); // Navigate to combined registration screen
+        navigation.navigate('CombinedRegistrationScreen'); 
         break;
       case 'About Us':
-        navigation.navigate('AboutUsPage'); // Replace with your about us screen
+        navigation.navigate('AboutUsPage');
         break;
       default:
         break;
@@ -54,12 +53,11 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         right: 0,
         height: '80%',
         width: '40%',
-        backgroundColor: 'white', // Set your transparent background color
-        borderRadius: 20, // Set the border radius
+        backgroundColor: 'white', 
+        borderRadius: 20, 
         zIndex: 100,
       }}>
       <View style={{ flex: 1, justifyContent: 'flex-start', width: '100%', alignItems: 'center' }}>
-        {/* Your sidebar content goes here */}
         <TouchableOpacity
           style={{
             backgroundColor: selectedOption === 'Home' ? '#D4F0F0' : 'white',
@@ -95,11 +93,10 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Logout button with confirmation */}
       <TouchableOpacity
         onPress={handleLogout}
         style={{
-          backgroundColor: '#FFDADA', // Light red background
+          backgroundColor: '#FFDADA', 
           paddingVertical: 12,
           borderRadius: 10,
           width: '90%',
@@ -107,7 +104,7 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         }}>
         <Text
           style={{
-            color: 'red', // Red text color
+            color: 'red', 
             fontSize: 18,
             fontWeight: 'bold',
             textAlign: 'center',

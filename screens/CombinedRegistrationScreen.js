@@ -15,12 +15,12 @@ const CombinedRegistrationScreen = () => {
   const [description, setDescription] = useState("");
 
   const handleRegister = () => {
-    // Logic to handle registration based on the selected type and input values
+    
     console.log("Registering as:", registrationType);
     console.log("Working Hours:", workingHours);
     console.log("Specialty:", specialty);
     console.log("Description:", description);
-    // Add your registration logic here
+    
   };
 
   const toggleDropdown = () => {
@@ -70,7 +70,7 @@ const CombinedRegistrationScreen = () => {
                 {registrationType || "Select Type"}
               </Text>
             </TouchableOpacity>
-            {/* Add your dropdown options here */}
+            
             {dropdownVisible && (
               <View style={{ backgroundColor: "#fff" }}>
                 <TouchableOpacity

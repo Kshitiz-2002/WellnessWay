@@ -9,12 +9,11 @@ const SplashScreen = () => {
   useEffect(() => {
     const animation = Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1000, // Adjust the duration as needed
+      duration: 1000, 
       useNativeDriver: true,
     });
 
     animation.start(() => {
-      // Navigate to LoginScreen after animation completes
       navigation.replace('StartupScreen');
     });
 
@@ -24,7 +23,7 @@ const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Animated.Image
-        source={require('../assets/WellnessWayLogo.png')} // Replace with your splash image
+        source={require('../assets/WellnessWayLogo.png')} 
         style={[styles.splashImage, { opacity: fadeAnim }]}
       />
     </View>
@@ -36,11 +35,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#4FC9BF', // Adjust the background color as needed
+    backgroundColor: '#4FC9BF',
   },
   splashImage: {
-    width: 400, // Adjust the width as needed
-    height: 400, // Adjust the height as needed
+    width: 400, 
+    height: 400, 
   },
 });
 

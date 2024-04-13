@@ -34,7 +34,7 @@ const HomeScreen = () => {
         }}>
         <TouchableOpacity
           onPress={() => {
-            // Handle profile image press
+            
           }}>
           <Image
             source={require('../assets/user.png')}
@@ -137,8 +137,7 @@ const HomeScreen = () => {
               }}>
               <TouchableOpacity>
                 <ModernCard
-                  imageSource={require('../assets/nurse.png')} // Replace with your image URL
-                  text="Nurse"
+                  imageSource={require('../assets/nurse.png')} 
                   backColor={'#E6E6FA'}
                 />
               </TouchableOpacity>
@@ -151,7 +150,7 @@ const HomeScreen = () => {
               }}>
               <TouchableOpacity>
                 <ModernCardWhite
-                  imageSource={require('../assets/test.png')} // Replace with your image URL
+                  imageSource={require('../assets/test.png')} 
                   text="Pathalogy"
                 />
               </TouchableOpacity>
@@ -175,7 +174,7 @@ const HomeScreen = () => {
               }}>
               <TouchableOpacity>
                 <ModernCardWhite
-                  imageSource={require('../assets/pharmacy.png')} // Replace with your image URL
+                  imageSource={require('../assets/pharmacy.png')} 
                   text="Pharmacy"
                   backColor={'#E6E6FA'}
                 />
@@ -189,7 +188,7 @@ const HomeScreen = () => {
               }}>
               <TouchableOpacity>
                 <ModernCard
-                  imageSource={require('../assets/exercise.png')} // Replace with your image URL
+                  imageSource={require('../assets/exercise.png')} 
                   text="Physiotherapy"
                 />
               </TouchableOpacity>
@@ -232,11 +231,11 @@ const HomeScreen = () => {
                       ios: {
                         shadowColor: '#000',
                         shadowOffset: { width: 0, height: 2 },
-                        shadowOpacity: 0.3, // Increase opacity for a stronger shadow
-                        shadowRadius: 6, // Increase radius for a softer shadow
+                        shadowOpacity: 0.3, 
+                        shadowRadius: 6, 
                       },
                       android: {
-                        elevation: 5, // Increase elevation for a stronger shadow on Android
+                        elevation: 5, 
                         overflow: 'hidden',
                       },
                     }),
@@ -283,11 +282,11 @@ const HomeScreen = () => {
                       ios: {
                         shadowColor: '#000',
                         shadowOffset: { width: 0, height: 2 },
-                        shadowOpacity: 0.3, // Increase opacity for a stronger shadow
-                        shadowRadius: 6, // Increase radius for a softer shadow
+                        shadowOpacity: 0.3, 
+                        shadowRadius: 6, 
                       },
                       android: {
-                        elevation: 5, // Increase elevation for a stronger shadow on Android
+                        elevation: 5, 
                         overflow: 'hidden',
                       },
                     }),
@@ -316,7 +315,7 @@ const HomeScreen = () => {
         </View>
       </View>
       {isSidebarOpen && (
-        // Render your sidebar content here
+       
         <Sidebar isSidebarOpen={isSidebarOpen} />
       )}
     </SafeAreaView>

@@ -23,7 +23,7 @@ const SignupScreen = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
-  const [loading, setLoading] = useState(false); // Added loading state
+  const [loading, setLoading] = useState(false); 
 
   const navigation = useNavigation();
 
@@ -57,7 +57,7 @@ const SignupScreen = () => {
     };
 
     try {
-      setLoading(true); // Set loading to true while waiting for the response
+      setLoading(true);
 
       const response = await fetch(
         'https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/signup',
@@ -73,16 +73,14 @@ const SignupScreen = () => {
 
       if (response.ok) {
         setError('');
-        // Handle success, e.g., navigate to the next screen
         navigation.navigate('NavigationScreen', { user: user });
       } else {
-        // Handle error
         setError('Signup failed');
       }
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false); // Set loading back to false regardless of success or failure
+      setLoading(false);
     }
   };
 

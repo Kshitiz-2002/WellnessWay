@@ -145,7 +145,7 @@ const SecondHomeScreen = ({ user }) => {
                   handleSearchNurse;
                 }}>
                 <ModernCard
-                  imageSource={require('../assets/nurse.png')} // Replace with your image URL
+                  imageSource={require('../assets/nurse.png')}
                   text="Nurse"
                   backColor={'#E6E6FA'}
                 />
@@ -162,7 +162,7 @@ const SecondHomeScreen = ({ user }) => {
                   handleSearchPathalogy;
                 }}>
                 <ModernCardWhite
-                  imageSource={require('../assets/test.png')} // Replace with your image URL
+                  imageSource={require('../assets/test.png')} 
                   text="Pathalogy"
                 />
               </TouchableOpacity>
@@ -189,7 +189,7 @@ const SecondHomeScreen = ({ user }) => {
                   handleSearchPharmacy;
                 }}>
                 <ModernCardWhite
-                  imageSource={require('../assets/pharmacy.png')} // Replace with your image URL
+                  imageSource={require('../assets/pharmacy.png')} 
                   text="Pharmacy"
                   backColor={'#E6E6FA'}
                 />
@@ -206,7 +206,7 @@ const SecondHomeScreen = ({ user }) => {
                   handleSearchPhysiotherapy;
                 }}>
                 <ModernCard
-                  imageSource={require('../assets/exercise.png')} // Replace with your image URL
+                  imageSource={require('../assets/exercise.png')} 
                   text="Physiotherapy"
                 />
               </TouchableOpacity>
@@ -240,7 +240,7 @@ const SecondHomeScreen = ({ user }) => {
         </View>
       </View>
       {isSidebarOpen && (
-        // Render your sidebar content here
+        
         <Sidebar isSidebarOpen={isSidebarOpen} user={user} />
       )}
     </SafeAreaView>

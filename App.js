@@ -25,7 +25,7 @@ const App = () => {
       <Stack.Navigator
         initialRouteName="SplashScreen"
         screenOptions={{
-          headerShown: false, // Use this to hide the header
+          headerShown: false,
           cardStyleInterpolator: customTransition,
         }}
       > 
