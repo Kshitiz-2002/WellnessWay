@@ -29,8 +29,8 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-        <HealthCard title={"Heart Rate"} initialValue={"Initial Heart Rate"} />
-        <HealthCard title={"Blood Oxygen Saturation"} initialValue={"Initial Blood Oxygen Saturation"} />
+        <HealthCard title={"Heart Rate"} initialValue={"50 mg/L"} />
+        <HealthCard title={"Blood Oxygen Saturation"} initialValue={"50 mg/L"} />
       </View>
       <View
         style={{
@@ -39,8 +39,8 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-        <HealthCard title={"Cholesterol Level"} initialValue={"Initial Cholesterol Level"} />
-        <HealthCard title={"Blood Sugar Level"} initialValue={"Initial Blood Sugar Level"} />
+        <HealthCard title={"Cholesterol Level"} initialValue={"50 mg/L"} />
+        <HealthCard title={"Blood Sugar Level"} initialValue={"50 mg/L"} />
       </View>
       <View
         style={{
@@ -49,8 +49,8 @@ const HealthScreen = () => {
           justifyContent: "space-between",
         }}
       >
-        <HealthCard title={"Glucose Level"} initialValue={"Initial Glucose Level"} />
-        <HealthCard title={"Blood Pressure Level"} initialValue={"Initial Blood Pressure Level"} />
+        <HealthCard title={"Glucose Level"} initialValue={"50 mg/L"} />
+        <HealthCard title={"Blood Pressure Level"} initialValue={"50 mg/L"} />
       </View>
       <View
         style={{
@@ -66,4 +66,3 @@ const HealthScreen = () => {
 };
 
 export default HealthScreen;
-  

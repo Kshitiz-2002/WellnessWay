@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Modal, TextInput, Button } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+  TextInput,
+  Button,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 const HealthCard = ({ style, title, initialValue }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -72,7 +80,9 @@ const HealthCard = ({ style, title, initialValue }) => {
                 Past Records:
               </Text>
               {pastRecords.map((record, index) => (
-                <Text key={index}>{`${title} Record ${index + 1}: ${record}`}</Text>
+                <Text key={index}>{`${title} Record ${
+                  index + 1
+                }: ${record}`}</Text>
               ))}
             </View>
             <Button
@@ -87,6 +97,52 @@ const HealthCard = ({ style, title, initialValue }) => {
 };
 
 const DiseasePredictionCard = ({ style }) => {
+  const [currentDisease, setCurrentDisease] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [symptoms, setSymptoms] = useState([""]);
+  const [historyModalVisible, setHistoryModalVisible] = useState(false);
+  const [diseaseHistory, setDiseaseHistory] = useState([]);
+
+  const handlePredictDisease = () => {
+    // Logic to predict disease based on symptoms
+    const predictedDisease = "Some Disease"; // Placeholder for predicted disease
+    setCurrentDisease(predictedDisease);
+
+    // Add predicted disease to history
+    const updatedHistory = [
+      ...diseaseHistory,
+      { disease: predictedDisease, symptoms: symptoms },
+    ];
+    setDiseaseHistory(updatedHistory);
+
+    // Close the modal after predicting disease
+    setModalVisible(false);
+  };
+
+  const handleAddSymptom = () => {
+    setSymptoms([...symptoms, ""]);
+  };
+
+  const handleSymptomChange = (text, index) => {
+    const updatedSymptoms = [...symptoms];
+    updatedSymptoms[index] = text;
+    setSymptoms(updatedSymptoms);
+  };
+
+  const handleDeleteSymptom = (index) => {
+    const updatedSymptoms = [...symptoms];
+    updatedSymptoms.splice(index, 1);
+    setSymptoms(updatedSymptoms);
+  };
+
+  const handleViewHistory = () => {
+    setHistoryModalVisible(true);
+  };
+
+  const handlePredictModal = () => {
+    setModalVisible(true);
+  };
+
   return (
     <View
       style={{
@@ -94,24 +150,247 @@ const DiseasePredictionCard = ({ style }) => {
         borderRadius: 10,
         padding: 15,
         marginBottom: 20,
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: "row",
         ...style,
       }}
     >
-      <Text
+      <View style={{ flex: 4, alignItems: "flex-start" }}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontWeight: "bold",
+            marginBottom: 10,
+            color: "#FFFFFF",
+          }}
+        >
+          Current Disease
+        </Text>
+        {currentDisease ? (
+          <Text style={{ fontSize: 25, color: "#FFFFFF", marginTop: 8 }}>
+            {currentDisease}
+          </Text>
+        ) : (
+          <Text style={{ fontSize: 30, color: "#FFFFFF", marginTop: 8 }}>
+            No Disease Detected
+          </Text>
+        )}
+      </View>
+      <View
         style={{
-          fontSize: 18,
-          fontWeight: "bold",
-          marginBottom: 10,
-          color: "#FFFFFF",
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingBottom: 10,
+          flexDirection: "column",
         }}
       >
-        Disease Prediction
-      </Text>
-      <Text style={{ fontSize: 16, color: "#FFFFFF" }}>
-        No Disease Detected
-      </Text>
+        <TouchableOpacity
+          onPress={handlePredictModal}
+          style={{
+            backgroundColor: "white",
+            alignItems: "center",
+            width: "100%",
+            borderRadius: 10,
+            paddingVertical: 10,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,
+          }}
+        >
+          <Text style={{ fontSize: 16, color: "#4FC9BF" }}>Predict</Text>
+        </TouchableOpacity>
+
+        <Modal
+          visible={modalVisible}
+          animationType="slide"
+          transparent={true}
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            {/* Prediction Modal Content */}
+            <View
+              style={{
+                backgroundColor: "white",
+                borderRadius: 10,
+                width: "80%",
+                padding: 20,
+              }}
+            >
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  marginBottom: 20,
+                }}
+              >
+                <Text style={{ fontSize: 20, fontWeight: "bold", flex: 1 }}>
+                  Enter Symptoms
+                </Text>
+                <FontAwesome
+                  name="plus"
+                  size={24}
+                  color="black"
+                  onPress={handleAddSymptom}
+                />
+              </View>
+              {symptoms.map((symptom, index) => (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginBottom: 20,
+                  }}
+                  key={index}
+                >
+                  <TextInput
+                    style={{
+                      height: 40,
+                      borderColor: "#4FC9BF",
+                      borderWidth: 1,
+                      flex: 1,
+                      paddingHorizontal: 10,
+                      borderRadius: 5,
+                    }}
+                    placeholder={`Symptom ${index + 1}`}
+                    value={symptom}
+                    onChangeText={(text) => handleSymptomChange(text, index)}
+                  />
+                  <View style={{flexDirection:'column'}}>
+                    <TouchableOpacity
+                      onPress={() => handleDeleteSymptom(index)}
+                      style={{
+                        flex:1,
+                        justifyContent: "center",
+                      }}
+                    >
+                      <FontAwesome
+                        name="trash"
+                        size={24}
+                        color="red"
+                        style={{ marginLeft: 10 }}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              ))}
+              <Button title="Predict Disease" onPress={handlePredictDisease} />
+              <Button
+                title="Close Modal"
+                onPress={() => setModalVisible(false)}
+              />
+            </View>
+          </View>
+        </Modal>
+
+        <TouchableOpacity
+          onPress={handleViewHistory}
+          style={{
+            backgroundColor: "white",
+            alignItems: "center",
+            marginTop: 10,
+            width: "100%",
+            borderRadius: 10,
+            paddingVertical: 10,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,
+          }}
+        >
+          <Text style={{ fontSize: 16, color: "#4FC9BF" }}>History</Text>
+        </TouchableOpacity>
+
+        {/* History Modal */}
+        <Modal
+          visible={historyModalVisible}
+          animationType="slide"
+          transparent={true}
+          onRequestClose={() => setHistoryModalVisible(false)}
+        >
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            {/* History Modal Content */}
+            <View
+              style={{
+                backgroundColor: "white",
+                borderRadius: 10,
+                width: "80%",
+                padding: 20,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  marginBottom: 10,
+                  textAlign: "center",
+                }}
+              >
+                Disease History
+              </Text>
+              {diseaseHistory.map((item, index) => (
+                <View key={index} style={{ marginBottom: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      fontWeight: "bold",
+                      marginBottom: 5,
+                    }}
+                  >
+                    {item.disease}
+                  </Text>
+                  {item.symptoms.map((symptom, index) => (
+                    <Text key={index} style={{ marginBottom: 3 }}>
+                      {symptom}
+                    </Text>
+                  ))}
+                </View>
+              ))}
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "red",
+                  paddingVertical: 10,
+                  borderRadius: 5,
+                  marginTop: 10,
+                }}
+                onPress={() => setHistoryModalVisible(false)}
+              >
+                <Text
+                  style={{
+                    fontSize: 18,
+                    color: "white",
+                    textAlign: "center",
+                  }}
+                >
+                  Close Modal
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+      </View>
     </View>
   );
 };

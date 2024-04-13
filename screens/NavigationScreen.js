@@ -23,7 +23,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 const RoundedTab = ({ children, focused }) => {
   const theme = useTheme();
-  const backgroundColor = focused ? '#4FC9BF' : theme.colors.surface;
+  const backgroundColor = focused ? '#4FC9BF' : 'transparent';
 
   return (
     <View
