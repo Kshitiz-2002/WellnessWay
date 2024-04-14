@@ -59,4 +59,4 @@ npm start
 ## Contributors
 
 - Vinayak V Singh (agnozimor)
-- Pranay Kanisetty (@pran-ayyy)
+- Pranay Kanisetty (pran-ayyy)
