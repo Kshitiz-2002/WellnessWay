@@ -2,25 +2,99 @@ import React, { useState } from "react";
 import {
   SafeAreaView,
   View,
+  Alert,
   Text,
   TouchableOpacity,
   TextInput,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const CombinedRegistrationScreen = () => {
+const CombinedRegistrationScreen = ({ route }) => {
+  const navigation = useNavigation();
+  const { user } = route.params;
   const [registrationType, setRegistrationType] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [workingHours, setWorkingHours] = useState("");
   const [specialty, setSpecialty] = useState("");
-  const [description, setDescription] = useState("");
 
-  const handleRegister = () => {
-    
-    console.log("Registering as:", registrationType);
-    console.log("Working Hours:", workingHours);
-    console.log("Specialty:", specialty);
-    console.log("Description:", description);
-    
+  const handleRegister = async () => {
+    try {
+      if (!user || !user.name || !user.emailaddress) {
+        console.error("User data is incomplete or undefined");
+        return;
+      }
+
+      if (!registrationType) {
+        console.error("Registration type is not selected");
+        return;
+      }
+
+      const registrationData = {
+        name: user.name,
+        phonenum: user.phonenum,
+        workingHours,
+        specialty,
+        emailaddress: user.emailaddress,
+      };
+
+      let registrationEndpoint = "";
+      switch (registrationType) {
+        case "Nurse":
+          registrationEndpoint =
+            "https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/registerNurse";
+          break;
+        case "Physiotherapist":
+          registrationEndpoint =
+            "https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/registerPhysiotherapy";
+          break;
+        case "Pharmacist":
+          registrationEndpoint =
+            "https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/registerPharmacy";
+          break;
+        case "Pathologist":
+          registrationEndpoint =
+            "https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/registerPathology";
+          break;
+        default:
+          console.error("Invalid registration type");
+          return;
+      }
+      const response = await fetch(registrationEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registrationData),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        Alert.alert(
+          "Succefull",
+          "Registration Successfull",
+          [
+            {
+              text: "Done",
+              onPress: () => {
+                navigation.navigate("CombinedRegistrationScreen", { user: user });
+              },
+            },
+          ],
+          { cancelable: false }
+        );
+      } else {
+        Alert.alert("Failed", data.error || "Registration failed");
+      }
+      setRegistrationType(null);
+      setWorkingHours("");
+      setSpecialty("");
+    } catch (error) {
+      Alert.alert("Failed", error.message || "Registration failed");
+      setRegistrationType(null);
+      setWorkingHours("");
+      setSpecialty("");
+      console.error(error);
+    }
   };
 
   const toggleDropdown = () => {
@@ -44,7 +118,14 @@ const CombinedRegistrationScreen = () => {
         }}
       >
         <View style={{ width: "100%" }}>
-          <Text style={{ fontSize: 24, marginBottom: 20, fontWeight: "bold", textAlign: "center" }}>
+          <Text
+            style={{
+              fontSize: 24,
+              marginBottom: 20,
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
             Registration
           </Text>
           <View
@@ -70,7 +151,7 @@ const CombinedRegistrationScreen = () => {
                 {registrationType || "Select Type"}
               </Text>
             </TouchableOpacity>
-            
+
             {dropdownVisible && (
               <View style={{ backgroundColor: "#fff" }}>
                 <TouchableOpacity
@@ -83,19 +164,25 @@ const CombinedRegistrationScreen = () => {
                   style={{ paddingVertical: 15, paddingHorizontal: 20 }}
                   onPress={() => handleOptionSelect("Physiotherapist")}
                 >
-                  <Text style={{ fontSize: 16, color: "#333" }}>Physiotherapist</Text>
+                  <Text style={{ fontSize: 16, color: "#333" }}>
+                    Physiotherapist
+                  </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{ paddingVertical: 15, paddingHorizontal: 20 }}
                   onPress={() => handleOptionSelect("Pharmacist")}
                 >
-                  <Text style={{ fontSize: 16, color: "#333" }}>Pharmacist</Text>
+                  <Text style={{ fontSize: 16, color: "#333" }}>
+                    Pharmacist
+                  </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{ paddingVertical: 15, paddingHorizontal: 20 }}
                   onPress={() => handleOptionSelect("Pathologist")}
                 >
-                  <Text style={{ fontSize: 16, color: "#333" }}>Pathologist</Text>
+                  <Text style={{ fontSize: 16, color: "#333" }}>
+                    Pathologist
+                  </Text>
                 </TouchableOpacity>
               </View>
             )}

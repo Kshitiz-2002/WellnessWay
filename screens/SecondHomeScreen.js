@@ -144,7 +144,7 @@ const SecondHomeScreen = ({ user }) => {
                 onPress={() => {
                   handleSearchNurse;
                 }}>
-                <ModernCardWhite
+                <ModernCard
                   imageSource={require('../assets/nurse.png')}
                   text="Nurse"
                   backColor={'#E6E6FA'}
@@ -161,7 +161,7 @@ const SecondHomeScreen = ({ user }) => {
                 onPress={() => {
                   handleSearchPathalogy;
                 }}>
-                <ModernCardWhite
+                <ModernCard
                   imageSource={require('../assets/test.png')} 
                   text="Pathalogy"
                 />

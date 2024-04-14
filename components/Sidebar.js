@@ -34,7 +34,7 @@ const Sidebar = ({ isSidebarOpen, user }) => {
         navigation.navigate('NavigationScreen', { user: user });
         break;
       case 'Combined Registration':
-        navigation.navigate('CombinedRegistrationScreen'); 
+        navigation.navigate('CombinedRegistrationScreen', { user: user }); 
         break;
       case 'About Us':
         navigation.navigate('AboutUsPage');
@@ -78,7 +78,7 @@ const Sidebar = ({ isSidebarOpen, user }) => {
             borderRadius: 10,
           }}
           onPress={() => handleOptionPress('Combined Registration')}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Healthcare Reg</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 6, color: '#4FC9BF', }}>Register</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{

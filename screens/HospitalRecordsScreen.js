@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   View,
@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 
-const HospitalCard = ({ name, address, rating }) => {
+const HospitalCard = ({ name, address, phonenum }) => {
   return (
     <TouchableOpacity
       style={{
@@ -32,18 +32,41 @@ const HospitalCard = ({ name, address, rating }) => {
     >
       <Text style={{ fontSize: 18, fontWeight: "bold" }}>{name}</Text>
       <Text>{address}</Text>
-      <Text>Rating: {rating}</Text>
+      <Text>Contact: {phonenum}</Text>
     </TouchableOpacity>
   );
 };
 
-const HospitalRecords = () => {
+const HospitalRecords = ({ user }) => {
+  const [hospitals, setHospitals] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/hospitals") // Update URL with your actual server URL
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setHospitals(data.hospitals);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching nearby hospitals:", error);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    // Fetch hospitals data based on user's city, state, and address
+    fetch(
+      `https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/hospitals?city=${user.city}&state=${user.state}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setHospitals(data.hospitals);
+      })
+      .catch((error) => {
+        console.error("Error fetching hospitals:", error);
+      });
+  }, [user]);
+
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-      }}
-    >
+    <SafeAreaView style={{ flex: 0.9 }}>
       <View
         style={{
           flex: 0.1,
@@ -61,21 +84,15 @@ const HospitalRecords = () => {
           Hospitals Nearby
         </Text>
       </View>
-      <ScrollView
-        style={{ flex: 3, }}
-        showsVerticalScrollIndicator={false} 
-      >
-        <HospitalCard
-          name="Hospital 1"
-          address="123 Main Street"
-          rating={4.5}
-        />
-        <HospitalCard
-          name="Hospital 2"
-          address="456 Elm Street"
-          rating={4.0}
-        />
-        {/* Add more HospitalCard components as needed */}
+      <ScrollView style={{ flex: 3 }} showsVerticalScrollIndicator={false}>
+        {hospitals.map((hospital) => (
+          <HospitalCard
+            key={hospital._id} // Assuming each hospital object has a unique _id
+            name={hospital.name}
+            address={hospital.address}
+            phonenum={hospital.phonenum}
+          />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

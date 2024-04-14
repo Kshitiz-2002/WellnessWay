@@ -94,7 +94,7 @@ const NavigationScreen = () => {
         />
         <Tab.Screen
           name="Health"
-          component={ChatScreen}
+          component={HealthScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <RoundedTab focused={focused}>
@@ -123,14 +123,14 @@ const NavigationScreen = () => {
                     height: iconSize,
                     tintColor: focused ? 'black' : 'black',
                   }}
-                />
+                  />
               </RoundedTab>
             ),
           }}
-        />
+          />
         <Tab.Screen
           name="Doctor"
-          component={HospitalRecords}
+          component={() => <HospitalRecords user={user} />}
           options={{
             tabBarIcon: ({ focused }) => (
               <RoundedTab focused={focused}> 
