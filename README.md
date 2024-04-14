@@ -33,10 +33,9 @@ npm install
 # Add the required environment variables for database connection and server configuration
 
 # Start the server
-npm start
+npm expo start
 
 # Access the application
-# Open a web browser and enter the provided URL to access the HealthCare App
 ```
 
 ## Running Instructions
