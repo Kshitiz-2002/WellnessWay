@@ -61,7 +61,6 @@ const SignupScreen = () => {
 
       const response = await fetch(
         'https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/signup',
-        // 'https://wellnesswayserver.kshitizpandey.repl.co/signup',
         {
           method: 'POST',
           headers: {

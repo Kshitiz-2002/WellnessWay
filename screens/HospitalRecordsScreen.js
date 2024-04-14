@@ -40,19 +40,7 @@ const HospitalCard = ({ name, address, phonenum }) => {
 const HospitalRecords = ({ user }) => {
   const [hospitals, setHospitals] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/hospitals") // Update URL with your actual server URL
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setHospitals(data.hospitals);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching nearby hospitals:", error);
-  //     });
-  // }, []);
-
   useEffect(() => {
-    // Fetch hospitals data based on user's city, state, and address
     fetch(
       `https://dbfb539b-1621-4585-8f4e-2729f136a9b5-00-udz7gviutoov.kirk.replit.dev/hospitals?city=${user.city}&state=${user.state}`
     )
@@ -87,7 +75,7 @@ const HospitalRecords = ({ user }) => {
       <ScrollView style={{ flex: 3 }} showsVerticalScrollIndicator={false}>
         {hospitals.map((hospital) => (
           <HospitalCard
-            key={hospital._id} // Assuming each hospital object has a unique _id
+            key={hospital._id} 
             name={hospital.name}
             address={hospital.address}
             phonenum={hospital.phonenum}

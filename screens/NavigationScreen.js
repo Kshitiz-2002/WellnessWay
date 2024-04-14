@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Platform,
-  Image,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { useTheme, Appbar } from 'react-native-paper';
-import HealthScreen from './HealthdataScreen';
-import PrescriptionScreen from './PrescriptionScreen';
 import { useRoute } from '@react-navigation/native';
-import HomeScreen from './HomeScreen';
-import SecondHomeScreen from './SecondHomeScreen';
+import React from 'react';
+import {
+  Image,
+  Platform,
+  View
+} from 'react-native';
+import { useTheme } from 'react-native-paper';
+import HealthScreen from './HealthdataScreen';
 import HospitalRecords from './HospitalRecordsScreen';
-import ChatScreen from './ChatScreen';
+import PrescriptionScreen from './PrescriptionScreen';
+import SecondHomeScreen from './SecondHomeScreen';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createMaterialBottomTabNavigator();
 
