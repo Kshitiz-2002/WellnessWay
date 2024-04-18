@@ -38,14 +38,6 @@ npm expo start
 # Access the application
 ```
 
-## Running Instructions
-
-1. Open a web browser.
-2. Enter the URL provided by the server to access the HealthCare App.
-3. Use the navigation menu to register doctors, nurses, pathologies, pharmacies, physiotherapists, and hospitals.
-4. Manage data records, update information, and delete entries as needed.
-5. Log out from the application after completing tasks.
-
 ## Technologies Used
 
 - **Frontend**: React Native
